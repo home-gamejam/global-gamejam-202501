@@ -14,7 +14,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("lalala")
 
 func _physics_process(delta: float) -> void:
-	velocity.x = 10
-	velocity.y = 5
+	velocity.x = 20
+	velocity.y = 3
+	
 	move_and_slide()
+	$platform.position=Vector2.ZERO
 	

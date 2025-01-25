@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bla5rl26tytpu"]
 
 [ext_resource type="PackedScene" uid="uid://b82tr7qqok556" path="res://bubble boy.tscn" id="1_vqxvr"]
-[ext_resource type="PackedScene" uid="uid://dpqtmlocinnwm" path="res://wood.tscn" id="2_ypeq0"]
-[ext_resource type="PackedScene" uid="uid://c4yolkw8rasio" path="res://area_2d.tscn" id="3_opy8k"]
+[ext_resource type="PackedScene" uid="uid://dpqtmlocinnwm" path="res://platform.tscn" id="2_ypeq0"]
+[ext_resource type="PackedScene" uid="uid://c4yolkw8rasio" path="res://bubble.tscn" id="3_opy8k"]
 [ext_resource type="Texture2D" uid="uid://7ohdy1fkf6r8" path="res://sprites/tilesBathroom.png" id="4_amwue"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_he4ii"]
@@ -118,18 +118,19 @@ texture_filter = 1
 position = Vector2(85, 43)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_vqxvr")]
-position = Vector2(5, 10)
+position = Vector2(-126, 25)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2, 2)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_ypeq0")]
+position = Vector2(-1, 16)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_ypeq0")]
-position = Vector2(166, -31)
+position = Vector2(257, 17)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_ypeq0")]
-position = Vector2(-162, 17)
+position = Vector2(-159, 18)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7aw4c")
@@ -138,4 +139,4 @@ layer_0/name = "groundL"
 layer_0/tile_data = PackedInt32Array(-131051, 131072, 2, -196587, 131072, 0, -131052, 65536, 2, -196588, 65536, 0, -131053, 65536, 2, -196589, 65536, 0, -131054, 65536, 2, -196590, 65536, 0, -131055, 65536, 2, -196591, 65536, 0, -131056, 0, 2, -196592, 0, 0)
 
 [node name="bubble" parent="." instance=ExtResource("3_opy8k")]
-position = Vector2(1, -9)
+position = Vector2(31, 35)
