@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bla5rl26tytpu"]
+[gd_scene load_steps=3 format=3 uid="uid://bla5rl26tytpu"]
 
 [ext_resource type="PackedScene" uid="uid://b82tr7qqok556" path="res://bubble boy.tscn" id="1_vqxvr"]
-[ext_resource type="Texture2D" uid="uid://b7o8pl53ak27p" path="res://icon.svg" id="2_iu8tt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjo4w"]
-size = Vector2(123, 16)
+[ext_resource type="PackedScene" uid="uid://dpqtmlocinnwm" path="res://wood.tscn" id="2_ypeq0"]
 
 [node name="main" type="Node2D"]
 texture_filter = 1
@@ -15,13 +12,10 @@ position = Vector2(85, 43)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2, 2)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" parent="." instance=ExtResource("2_ypeq0")]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(10, 38)
-scale = Vector2(1, 0.117188)
-texture = ExtResource("2_iu8tt")
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_ypeq0")]
+position = Vector2(166, -31)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9.5, 38)
-shape = SubResource("RectangleShape2D_mjo4w")
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_ypeq0")]
+position = Vector2(-172, 16)
