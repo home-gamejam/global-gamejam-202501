@@ -5,7 +5,6 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 @onready var animations = $AnimationPlayer
 
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -27,7 +26,3 @@ func _physics_process(delta: float) -> void:
 		animations.play("RESET")
 
 	move_and_slide()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("enterd")

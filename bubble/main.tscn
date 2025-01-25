@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bla5rl26tytpu"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_4b3uh"]
 [ext_resource type="PackedScene" uid="uid://b82tr7qqok556" path="res://bubble boy.tscn" id="1_vqxvr"]
 [ext_resource type="PackedScene" uid="uid://dpqtmlocinnwm" path="res://platform.tscn" id="2_ypeq0"]
-[ext_resource type="PackedScene" uid="uid://c4yolkw8rasio" path="res://bubble.tscn" id="3_opy8k"]
 [ext_resource type="Texture2D" uid="uid://7ohdy1fkf6r8" path="res://sprites/tilesBathroom.png" id="4_amwue"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_he4ii"]
@@ -116,6 +116,7 @@ sources/0 = SubResource("TileSetAtlasSource_he4ii")
 [node name="main" type="Node2D"]
 texture_filter = 1
 position = Vector2(85, 43)
+script = ExtResource("1_4b3uh")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_vqxvr")]
 position = Vector2(-126, 25)
@@ -136,6 +137,3 @@ position = Vector2(-159, 18)
 tile_set = SubResource("TileSet_7aw4c")
 format = 2
 layer_0/name = "groundL"
-
-[node name="bubble" parent="." instance=ExtResource("3_opy8k")]
-position = Vector2(-184, 26)
