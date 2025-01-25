@@ -12,3 +12,5 @@ Global Game Jam with Nashville Game Developers group.
 Judah and Gage created a 2d platformer in Godot using Aseprite for game assets.
 
 [Play Bubble Boy's Bodacious Bubbleventure](https://home-gamejam.github.io/global-gamejam-202501/bubbleboy/)
+
+> Requires keyboard
