@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bla5rl26tytpu"]
 
 [ext_resource type="PackedScene" uid="uid://b82tr7qqok556" path="res://bubble boy.tscn" id="1_vqxvr"]
-[ext_resource type="PackedScene" uid="uid://dpqtmlocinnwm" path="res://wood.tscn" id="2_ypeq0"]
-[ext_resource type="PackedScene" path="res://area_2d.tscn" id="3_opy8k"]
+[ext_resource type="PackedScene" uid="uid://dpqtmlocinnwm" path="res://platform.tscn" id="2_ypeq0"]
+[ext_resource type="PackedScene" uid="uid://c4yolkw8rasio" path="res://bubble.tscn" id="3_opy8k"]
 [ext_resource type="Texture2D" uid="uid://7ohdy1fkf6r8" path="res://sprites/tilesBathroom.png" id="4_amwue"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_he4ii"]
@@ -118,23 +118,25 @@ texture_filter = 1
 position = Vector2(85, 43)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_vqxvr")]
-position = Vector2(5, 10)
+position = Vector2(-126, 25)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2, 2)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_ypeq0")]
+position = Vector2(-1, 16)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_ypeq0")]
 position = Vector2(166, -31)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_ypeq0")]
-position = Vector2(-162, 17)
-
-[node name="Area2D" parent="." instance=ExtResource("3_opy8k")]
+position = Vector2(-159, 18)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7aw4c")
 format = 2
 layer_0/name = "groundL"
-layer_0/tile_data = PackedInt32Array(-131051, 131072, 2, -196587, 131072, 0, -131052, 65536, 2, -196588, 65536, 0, -131053, 65536, 2, -196589, 65536, 0, -131054, 65536, 2, -196590, 65536, 0, -131055, 65536, 2, -196591, 65536, 0, -131056, 0, 2, -196592, 0, 0)
+layer_0/tile_data = PackedInt32Array(-131051, 131072, 2, -196587, 131072, 0, -131052, 65536, 2, -196588, 65536, 0, -131053, 65536, 2, -196589, 65536, 0, -131054, 65536, 2, -196590, 65536, 0, -131055, 65536, 2, -196591, 65536, 0, -131056, 0, 2, -196592, 0, 0, 14, 131072, 3, 13, 65536, 3, 12, 65536, 3, 11, 65536, 3, 10, 65536, 3, 9, 65536, 3, 8, 65536, 3, 7, 0, 3, 196612, 131072, 3, 196611, 65536, 3, 196610, 65536, 3, 196609, 65536, 3, 196608, 65536, 3, 262143, 65536, 3, 262142, 65536, 3, 262141, 65536, 3, 262140, 0, 3, 262138, 131072, 3, 262137, 65536, 3, 262136, 65536, 3, 262135, 65536, 3, 262134, 65536, 3, 262133, 65536, 3, 262132, 65536, 3, 262131, 65536, 3, 262130, 0, 3)
+
+[node name="bubble" parent="." instance=ExtResource("3_opy8k")]
+position = Vector2(-184, 26)
