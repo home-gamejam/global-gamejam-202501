@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b82tr7qqok556"]
+[gd_scene load_steps=9 format=3 uid="uid://b82tr7qqok556"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_ctl7h"]
 [ext_resource type="Texture2D" uid="uid://yufnixtctbeh" path="res://sprites/bubbleBoy.png" id="2_0b750"]
@@ -6,15 +6,95 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j3m7"]
 size = Vector2(19, 31)
 
+[sub_resource type="Animation" id="Animation_hmmya"]
+resource_name = "waddle"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_v8eej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_oex4d"]
+resource_name = "jump"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_q5unh"]
+resource_name = "creation"
+length = 0.1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prkhg"]
+_data = {
+"RESET": SubResource("Animation_v8eej"),
+"creation": SubResource("Animation_q5unh"),
+"jump": SubResource("Animation_oex4d"),
+"waddle": SubResource("Animation_hmmya")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_ctl7h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, -0.5)
-scale = Vector2(0.918919, 0.645833)
+position = Vector2(0.148647, -3)
+scale = Vector2(0.92821, 0.791667)
 texture = ExtResource("2_0b750")
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 0)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4j3m7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_prkhg")
+}
