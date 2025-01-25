@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx676pfdpvtoh"
+path="res://.godot/imported/Record (online-voice-recorder.com) (4).mp3-86de3948de10867cf0eb62b2deddd727.mp3str"
+
+[deps]
+
+source_file="res://sprites/Record (online-voice-recorder.com) (4).mp3"
+dest_files=["res://.godot/imported/Record (online-voice-recorder.com) (4).mp3-86de3948de10867cf0eb62b2deddd727.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

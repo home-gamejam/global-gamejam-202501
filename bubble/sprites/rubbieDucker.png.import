@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd2ehthodhnrv"
-path="res://.godot/imported/grurdoBig.png-c37d9c772c10ae1d64125e549971d6e1.ctex"
+uid="uid://dr4noxfkh1oc8"
+path="res://.godot/imported/rubbieDucker.png-fc043a5538427dd41186e2b7af787822.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/grurdoBig.png"
-dest_files=["res://.godot/imported/grurdoBig.png-c37d9c772c10ae1d64125e549971d6e1.ctex"]
+source_file="res://sprites/rubbieDucker.png"
+dest_files=["res://.godot/imported/rubbieDucker.png-fc043a5538427dd41186e2b7af787822.ctex"]
 
 [params]
 

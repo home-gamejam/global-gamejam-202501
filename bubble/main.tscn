@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bla5rl26tytpu"]
+[gd_scene load_steps=9 format=3 uid="uid://bla5rl26tytpu"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4b3uh"]
 [ext_resource type="PackedScene" uid="uid://b82tr7qqok556" path="res://bubble boy.tscn" id="1_vqxvr"]
 [ext_resource type="PackedScene" uid="uid://bhcseevd80tvs" path="res://spike.tscn" id="4_18yna"]
 [ext_resource type="Texture2D" uid="uid://7ohdy1fkf6r8" path="res://sprites/tilesBathroom.png" id="4_amwue"]
 [ext_resource type="PackedScene" uid="uid://ctw854ycpcctj" path="res://big sprite.tscn" id="5_tr5tb"]
+[ext_resource type="PackedScene" uid="uid://dm2ncakvtm8lt" path="res://ducky.tscn" id="6_abj8g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_he4ii"]
 resource_name = "bathroom"
@@ -195,5 +196,15 @@ player = NodePath("../bubbleboy")
 offset_left = 338.0
 offset_top = -106.0
 offset_right = 655.0
-offset_bottom = -28.0
+offset_bottom = -66.0
 text = "you can ride in bubbles too"
+
+[node name="Sprite2D" parent="." instance=ExtResource("6_abj8g")]
+position = Vector2(763, -15)
+
+[node name="TextEdit3" type="TextEdit" parent="."]
+offset_left = 714.0
+offset_top = -65.0
+offset_right = 784.0
+offset_bottom = -25.0
+text = "you win"
