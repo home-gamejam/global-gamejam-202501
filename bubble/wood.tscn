@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpqtmlocinnwm"]
+
+[ext_resource type="Texture2D" uid="uid://dlenhumjw22r" path="res://wood.jpg" id="1_jp6bf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjo4w"]
+size = Vector2(123, 16)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 38.5)
+scale = Vector2(0.244, 0.03)
+texture = ExtResource("1_jp6bf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, 38)
+shape = SubResource("RectangleShape2D_mjo4w")
