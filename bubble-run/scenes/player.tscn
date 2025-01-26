@@ -1,25 +1,89 @@
-[gd_scene load_steps=4 format=3 uid="uid://b34pgf5iyaa4s"]
+[gd_scene load_steps=13 format=3 uid="uid://b34pgf5iyaa4s"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_mlfo6"]
+[ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="2_12pbw"]
+[ext_resource type="PackedScene" uid="uid://dkknlbair5eue" path="res://assets/character.gltf" id="3_82ekw"]
+[ext_resource type="AnimationLibrary" uid="uid://cq52anv3xhbco" path="res://resources/character_animations.tres" id="4_35vvi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sd0ta"]
+radius = 1.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wor50"]
+render_priority = 0
+shader = ExtResource("2_12pbw")
+shader_parameter/albedo = null
+shader_parameter/emission_color = null
+shader_parameter/emission_amount = 5.0
+shader_parameter/rim_steepness = 3.0
+shader_parameter/uv_scale = null
+shader_parameter/uv_offset = null
 
 [sub_resource type="SphereMesh" id="SphereMesh_hk1uy"]
+material = SubResource("ShaderMaterial_wor50")
+radius = 1.4
+height = 2.8
 
-[node name="Bubble" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bwnkw"]
+animation = &"character_animations/Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lg44w"]
+animation = &"character_animations/Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uex6c"]
+animation = &"character_animations/Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_d5xgx"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_bwnkw")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_lg44w")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_uex6c")
+blend_point_2/pos = 2.0
+min_space = 0.0
+max_space = 2.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8ibup"]
+nodes/Movement/node = SubResource("AnimationNodeBlendSpace1D_d5xgx")
+nodes/Movement/position = Vector2(70, 110)
+node_connections = [&"output", 0, &"Movement"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_mlfo6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("SphereShape3D_sd0ta")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Bubble" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 mesh = SubResource("SphereMesh_hk1uy")
 
+[node name="Character" parent="." instance=ExtResource("3_82ekw")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.878725, -0.477327, 0, 0.477327, 0.878725, 0, 2, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
-spring_length = 3.0
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+spring_length = 6.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../Character")
+libraries = {
+"character_animations": ExtResource("4_35vvi")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/../Character")
+tree_root = SubResource("AnimationNodeBlendTree_8ibup")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Movement/blend_position = 0.999085
