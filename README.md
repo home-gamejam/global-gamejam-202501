@@ -16,6 +16,8 @@ Judah and Gage created a 2d platformer in Godot using Aseprite for game assets.
 
 ## Bubble Run
 
+![Bubble Run](docs/bubble-run.gif)
+
 3D platformer made in Godot and Blender
 
 [Play Bubble Run](https://home-gamejam.github.io/global-gamejam-202501/bubblerun/)

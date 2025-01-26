@@ -83,7 +83,7 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
-root_node = NodePath("%AnimationTree/../Character")
+root_node = NodePath("%Character")
 tree_root = SubResource("AnimationNodeBlendTree_8ibup")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Movement/blend_position = 0.999085
