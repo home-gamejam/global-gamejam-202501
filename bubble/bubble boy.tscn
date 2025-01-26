@@ -98,3 +98,5 @@ shape = SubResource("RectangleShape2D_4j3m7")
 libraries = {
 "": SubResource("AnimationLibrary_prkhg")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
