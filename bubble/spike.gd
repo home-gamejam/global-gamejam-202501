@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player:
+		$AudioStreamPlayer2D.play()
 		player.position.x = -273
 		player.position.y = 26
 	
