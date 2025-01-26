@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b82tr7qqok556"]
+[gd_scene load_steps=10 format=3 uid="uid://b82tr7qqok556"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_ctl7h"]
 [ext_resource type="Texture2D" uid="uid://yufnixtctbeh" path="res://sprites/bubbleBoy.png" id="2_0b750"]
+[ext_resource type="AudioStream" uid="uid://b211tofppur1v" path="res://sounds/jump.mp3" id="3_aw8w6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j3m7"]
 size = Vector2(19, 31)
@@ -98,3 +99,6 @@ shape = SubResource("RectangleShape2D_4j3m7")
 libraries = {
 "": SubResource("AnimationLibrary_prkhg")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_aw8w6")

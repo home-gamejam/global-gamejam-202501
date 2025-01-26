@@ -12,10 +12,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("bubble"):
+		BubbleSound.play()
 		if bubble_spawner:
 			bubble_spawner.queue_free()
 		bubble_spawner = bubble.instantiate()
 		add_child(bubble_spawner)
-		BubbleSound.play
 		bubble_spawner.position.x = $bubbleboy.position.x + 32
 		bubble_spawner.position.y = $bubbleboy.position.y + 16

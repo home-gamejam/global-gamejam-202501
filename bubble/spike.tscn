@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhcseevd80tvs"]
+[gd_scene load_steps=5 format=3 uid="uid://bhcseevd80tvs"]
 
 [ext_resource type="Script" path="res://spike.gd" id="1_bklvn"]
 [ext_resource type="Texture2D" uid="uid://8dcpyeoln3j1" path="res://sprites/grurdo.png" id="1_wtkm1"]
+[ext_resource type="AudioStream" uid="uid://dawwnblaq1yjj" path="res://sounds/death.mp3" id="3_1n0p6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nuv5a"]
 size = Vector2(13.5, 15)
@@ -17,5 +18,8 @@ texture = ExtResource("1_wtkm1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.25, -0.5)
 shape = SubResource("RectangleShape2D_nuv5a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1n0p6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
