@@ -1,13 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctw854ycpcctj"]
 
 [ext_resource type="Script" path="res://spike.gd" id="1_1e55s"]
-[ext_resource type="Texture2D" uid="uid://dal08mu2qd560" path="res://sprites/grurdoBig.png" id="1_qhpvq"]
+[ext_resource type="Texture2D" uid="uid://cd2ehthodhnrv" path="res://sprites/grurdoBig.png" id="1_qhpvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ar15"]
 size = Vector2(19, 32)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource("1_1e55s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_4ar15")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qhpvq")
